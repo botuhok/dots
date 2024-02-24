@@ -19,6 +19,9 @@
 " Space+m                            - built-in filemanager
 " Ctrl+k, Ctrl +j in visual mode     - move selected lines up/down
 " Space+u                            - undotree (git analog)
+" F5                                 - Compile and Run
+" F8                                 - Debug (GDB)
+" F6                                 - Compile and Run (stdin from test file)
 "
 
 syntax on                       "syntax highlighting, see :help syntax
@@ -388,14 +391,12 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
   " autocmd FileType python nnoremap <buffer> <F5> :w<cr>:exec '!clear'<cr>:exec '!python3' shellescape(expand('%:p'), 1)<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" C/C++
-    set makeprg=gcc\ %
-    map <F4> :w\|mak\|cw<cr>
+    packadd termdebug
     autocmd Filetype c nnoremap <F8> :Termdebug %<<cr>
     autocmd Filetype cpp nnoremap <F8> :Termdebug %<<cr>
     autocmd Filetype cpp nnoremap <F5> :!g++ -g -o %< %<cr>:!./%<<cr>
-    packadd termdebug
-    " autocmd Filetype c nnoremap <F5> <Esc>:w<CR>:!clear;gcc -Wall -o %< %<cr>:!./%<<cr>
-    autocmd Filetype c noremap <F5> :w<CR> :silent !clear;gcc -std=c99 -Wall -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%<<CR>
+    autocmd Filetype c noremap <F5> :w<CR> :silent !clear;gcc -std=c99 -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%<<CR>
+    autocmd Filetype c noremap <F6> :w<CR> :silent !clear;gcc -std=c99 -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%< < test<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""" ASM
     autocmd BufNewFile,BufRead *.asm  set ft=nasm
