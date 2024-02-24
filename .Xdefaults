@@ -1,0 +1,54 @@
+#URxvt*.background : #000000
+/* URxvt*background: black */
+/* URxvt*foreground: white */
+URxvt.scrollBar: false
+/* URxvt.font: xft:JetBrainsMono Nerd Font:light:size=11 */
+/* URxvt.font: xft:JetBrainsMono-Medium:size=11 */
+URxvt.font: xft:Iosevka Nerd Font Mono:regular:size=12
+/* URxvt.font: xft:MesloLGS NF:size=11 */
+/* URxvt.font: xft:Hack Nerd Font:regular:size=12 */
+/* URxvt.letterSpace: -1 */
+URxvt*.transparent: true
+URxvt.geometry: 400x400
+!URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
+
+URxvt*.shading: 13
+
+#URxvt.font: xft:Anonymice Powerline:size=9
+
+! special
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #000000
+*.color8:       #4d4d4d
+
+! red
+*.color1:       #cc0403
+*.color9:       #3e0605
+
+! green
+*.color2:       #19cb00
+*.color10:      #23fd00
+
+! yellow
+*.color3:       #cecb00
+*.color11:      #fffd00
+
+! blue
+*.color4:       #001cd1
+*.color12:      #0026ff
+
+! magenta
+*.color5:       #cb1ed1
+*.color13:      #fd28ff
+
+! cyan
+*.color6:       #0dcdcd
+*.color14:      #14ffff
+
+! white
+*.color7:       #e5e5e5
+*.color15:      #ffffff
