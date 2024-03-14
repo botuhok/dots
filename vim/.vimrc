@@ -4,7 +4,6 @@
 "
 "
 "
-" :Hexmode      - open hex editor
 " ::: COC.VIM ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 " K                                  - information about word under cursor
 " Space+a                            - show all errors in code
@@ -22,6 +21,7 @@
 " F5                                 - Compile and Run
 " F8                                 - Debug (GDB)
 " F6                                 - Compile and Run (stdin from test file)
+" :Hexmode      - open hex editor
 "
 
 syntax on                       "syntax highlighting, see :help syntax
@@ -31,7 +31,7 @@ filetype plugin indent on       "file type detection, see :help filetype
 set expandtab
 set autoindent
 set smartindent
-set clipboard=unnamedplus          " use system clipboard
+" set clipboard=unnamedplus          " use system clipboard
 set textwidth=0                    " отключить автоперенос строк
 set tabstop=2
 set softtabstop=2
@@ -395,8 +395,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
     autocmd Filetype c nnoremap <F8> :Termdebug %<<cr>
     autocmd Filetype cpp nnoremap <F8> :Termdebug %<<cr>
     autocmd Filetype cpp nnoremap <F5> :!g++ -g -o %< %<cr>:!./%<<cr>
-    autocmd Filetype c noremap <F5> :w<CR> :silent !clear;gcc -std=c99 -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%<<CR>
-    autocmd Filetype c noremap <F6> :w<CR> :silent !clear;gcc -std=c99 -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%< < test<CR>
+    autocmd Filetype c noremap <F5> :w<CR> :silent !clear;gcc -std=c99 -lm -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%<<CR>
+    autocmd Filetype c noremap <F6> :w<CR> :silent !clear;gcc -std=c99 -lm -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%< < test<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""" ASM
     autocmd BufNewFile,BufRead *.asm  set ft=nasm
