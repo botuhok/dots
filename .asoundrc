@@ -1,0 +1,6 @@
+defaults.ctl.card 0;
+defaults.pcm.card 0;
+pcm.dsp {
+    type plug
+    slave.pcm "dmix"
+}
