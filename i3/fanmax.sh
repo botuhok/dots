@@ -1,0 +1,2 @@
+#!/bin/bash
+echo level full-speed | sudo tee /proc/acpi/ibm/fan

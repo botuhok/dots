@@ -22,7 +22,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # zplug 'dracula/zsh', as:theme
 # zplug load --verbose
 fpath+=($HOME/.zsh/pure)
-path+=($HOME/.local/bin)
 autoload -U promptinit; promptinit
 prompt pure
 

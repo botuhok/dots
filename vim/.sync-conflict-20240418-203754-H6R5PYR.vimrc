@@ -395,8 +395,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
     autocmd Filetype c nnoremap <F8> :Termdebug %<<cr>
     autocmd Filetype cpp nnoremap <F8> :Termdebug %<<cr>
     autocmd Filetype cpp nnoremap <F5> :!g++ -g -o %< %<cr>:!./%<<cr>
-    autocmd Filetype c noremap <F5> :w<CR> :silent !clear;gcc -std=c99 -lm -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%<<CR>
-    autocmd Filetype c noremap <F6> :w<CR> :silent !clear;gcc -std=c99 -lm -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%< < test<CR>
+    autocmd Filetype c noremap <F5> :w<CR> :silent !clear;gcc -std=c99 -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%<<CR>
+    autocmd Filetype c noremap <F6> :w<CR> :silent !clear;gcc -std=c99 -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%< < test<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""" ASM
     autocmd BufNewFile,BufRead *.asm  set ft=nasm
