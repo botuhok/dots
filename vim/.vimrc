@@ -143,7 +143,7 @@ call plug#begin()
     " Plug 'ervandew/supertab'                " TAB complete
 
     " AUTOCOMPLETE
-      Plug 'neoclide/coc.nvim', {'branch': 'release'}
+       Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " highlight for c/c++ languages
       Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -255,6 +255,12 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
   noremap <silent> <leader><Up> :resize +3<CR>
   noremap <silent> <leader><Down> :resize -3<CR>
 
+  "multicursor
+  noremap <C-LeftMouse> <Plug>(VM-Mouse-Cursor)
+  noremap <C-RightMouse> <Plug>(VM-Mouse-Word)
+  noremap <C-j> <Plug>(VM-Add-Cursor-Down)
+  noremap <C-k> <Plug>(VM-Add-Cursor-Up)
+
   " заменяет слово под курсором скопированным буфером
   nnoremap S diw"0P
 
@@ -282,7 +288,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
     vmap <C-j> :m '>+1<CR>gv=gv
 
   " для плагина undotree
-    nmap <leader>u :UndotreeToggle
+    nmap <leader>u :UndotreeToggle<CR>
 
   " скроллинг страницы при перемещении курсора через C-d, C-u
     nmap <C-d> <C-d>zz
@@ -397,6 +403,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
     autocmd Filetype cpp nnoremap <F5> :!g++ -g -o %< %<cr>:!./%<<cr>
     autocmd Filetype c noremap <F5> :w<CR> :silent !clear;gcc -std=c99 -lm -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%<<CR>
     autocmd Filetype c noremap <F6> :w<CR> :silent !clear;gcc -std=c99 -lm -no-pie -Wall -g -o %< %<CR> :!echo ":::::::::::: Running ::::::::"&& echo;./%< < test<CR>
+    autocmd Filetype c noremap <F7> :w<CR> :silent !clear;make<CR> :!echo ":::::::::::: Running ::::::::";echo; ./%<<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""" ASM
     autocmd BufNewFile,BufRead *.asm  set ft=nasm

@@ -22,7 +22,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # zplug 'dracula/zsh', as:theme
 # zplug load --verbose
 fpath+=($HOME/.zsh/pure)
-path+=($HOME/.local/bin)
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -47,3 +46,5 @@ alias torproxy='sudo tor -f ~/Sync/XAK/tor_tun/torrc_g700 --HTTPTunnelPort 8118'
 alias xi='sudo xbps-install -S'
 alias xr='sudo xbps-remove -Oo'
 alias xq='xbps-query -Rs'
+export LC_ALL="en_US.UTF-8"
+clear
